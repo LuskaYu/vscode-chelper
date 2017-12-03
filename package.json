@@ -1,0 +1,65 @@
+{
+    "name": "chelper",
+    "displayName": "chelper",
+    "description": "an extension to help c coders creating comment quickly",
+    "icon": "chelper.png",
+    "version": "0.0.3",
+    "publisher": "luskayu",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.chelper"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "keybindings":[ {
+            "command":"extension.chelper",
+            "key":"ctrl+1",
+            "when":"editorTextFocus"
+        }],
+        "configuration": {
+            "type":"object",
+            "title": "chelper configuration",
+            "properties": {
+                "chelper.user_name":{
+                    "type":["string", "null"],
+                    "default": "default",
+                    "description": "user name"
+            },
+                "chelper.user_email":{
+                "type":["string", "null"],
+                "default": "default",
+                "description": "user name"
+                },
+                "chelper.user_copyrights":{
+                "type":["string", "null"],
+                "default": "All rights reserved.",
+                "description": "user copyrights"
+                },                
+                "chelper.user_company":{
+                    "type":["string", "null"],
+                    "default": "default",
+                    "description": "company"
+
+                }
+
+        }
+    }
+},
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "eslint": "^3.6.0",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}
